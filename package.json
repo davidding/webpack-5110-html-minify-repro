@@ -1,0 +1,16 @@
+{
+  "name": "webpack-5110-html-minify-repro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal reproduction: webpack 5.110 built-in HTML minifier deduplicates the repeated %} delimiter in copy-webpack-plugin .html assets",
+  "scripts": {
+    "build": "webpack",
+    "compare": "for f in src/*.html; do d=\"dist/$(basename \"$f\")\"; echo \"== $f -> $d ==\"; echo \"  in : $(cat \"$f\")\"; echo \"  out: $(cat \"$d\")\"; done",
+    "verify": "npm run build && npm run compare"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "14.0.0",
+    "webpack": "5.110.3",
+    "webpack-cli": "7.2.3"
+  }
+}
